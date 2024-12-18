@@ -15,3 +15,9 @@ button {
   border: none;
   background-color: transparent;
 }
+
+@font-face {
+  font-family: "Atop";
+  src: url("./assets/fonts/Atop-R99O3.ttf");
+}
+
