@@ -1,3 +1,5 @@
+import { handleClick } from ".";
+
 const renderStartPage = () => {
   const section = document.createElement("section");
   const bgImageDiv = document.createElement("div");
@@ -16,8 +18,12 @@ const renderStartPage = () => {
   heading.textContent = "Lunch healthy";
   description.textContent = "is better with Intense.Meals";
   button.textContent = "See plans";
+  button.setAttribute("id", "intense-plan-btn");
 
   button.setAttribute("type", "button");
+  button.addEventListener("click", () => {
+    handleClick("intense-plan-btn");
+  });
 
   section.append(bgImageDiv, firstLayerDiv, secondLayerDiv);
   secondLayerDiv.append(article);

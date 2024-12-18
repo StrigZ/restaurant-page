@@ -6,9 +6,18 @@ import renderStore from "./renderStorePage";
 const nav = document.querySelector("nav > ul");
 const main = document.querySelector("main");
 
-(() => {
-  main.append(renderStartPage());
-})();
+const logo = document.querySelector(".logo");
+
+export const handleClick = (targetId) => {
+  setActiveButton(targetId);
+  renderContentById(targetId);
+};
+
+const setActiveButton = (targetId) => {
+  const clickedButton = document.querySelector(`#${targetId}`);
+  [...nav.children].forEach((li) => li.children[0].classList.remove("active"));
+  clickedButton.classList.add("active");
+};
 
 const renderContentById = (id) => {
   let content = null;
@@ -36,7 +45,11 @@ nav.addEventListener("click", ({ target }) => {
   if (!target.id) {
     return;
   }
-  [...nav.children].forEach((li) => li.children[0].classList.remove("active"));
-  target.classList.add("active");
-  renderContentById(target.id);
+  handleClick(target.id);
 });
+
+logo.addEventListener("click", () => {
+  handleClick("start-page-btn");
+});
+
+main.append(renderStartPage());
