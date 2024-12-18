@@ -10,6 +10,14 @@
 
 :root {
   --accent-color: #f48a20;
+  --base-color: #212326;
+  --section-padding: 128px 64px;
+  --section-gap: 32px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 body {
@@ -103,7 +111,7 @@ header {
 }
 
 main {
-  section {
+  section:first-child {
     min-height: 90vh;
   }
   .hero {
@@ -132,7 +140,7 @@ main {
       z-index: -1;
     }
     .bg-second-layer {
-      background-color: #212326;
+      background-color: var(--base-color);
       width: 50%;
       height: 100%;
       clip-path: ellipse(98.58% 62% at 0.67% 54.04%);
@@ -182,6 +190,66 @@ main {
           width: min-content;
           writing-mode: sideways-lr;
           text-orientation: sideways-right;
+        }
+      }
+    }
+  }
+
+  section:nth-child(2) {
+    min-height: 100vh;
+    background-color: var(--base-color);
+    padding: var(--section-padding);
+    display: flex;
+    justify-content: center;
+    gap: var(--section-gap);
+
+    .image-container {
+      flex: 2;
+      img {
+        border-radius: 12px;
+        object-fit: cover;
+      }
+    }
+
+    article {
+      flex: 1;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 15%;
+        height: 3px;
+        background-color: var(--accent-color);
+        top: -24px;
+        left: 0;
+      }
+
+      > * + * {
+        margin-top: 64px;
+      }
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-align: center;
+      }
+      > p {
+        font-size: 1.25rem;
+        font-style: italic;
+        text-align: center;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+
+        li {
+          display: flex;
+          gap: 16px;
+          p {
+            font-size: 1.25rem;
+            font-weight: 300;
+          }
         }
       }
     }
