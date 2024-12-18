@@ -112,9 +112,10 @@ header {
 }
 
 main {
-  section:first-child {
-    min-height: 90vh;
+  section {
+    height: 90vh;
   }
+
   .hero {
     position: relative;
 
@@ -196,9 +197,8 @@ main {
     }
   }
 
-  section:nth-child(2),
-  section:nth-child(3) {
-    height: 100vh;
+  .intense-plan,
+  .store {
     background-color: var(--base-color);
     padding: var(--section-padding);
     display: flex;
@@ -262,7 +262,7 @@ main {
       }
     }
   }
-  section:nth-child(2) {
+  .intense-plan {
     article {
       ul {
         gap: 64px;
@@ -270,7 +270,7 @@ main {
     }
   }
 
-  section:nth-child(3) {
+  .store {
     article {
       ul {
         li {
