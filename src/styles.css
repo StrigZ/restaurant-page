@@ -94,17 +94,16 @@ header {
           font-weight: bold;
           font-size: 1.25rem;
           cursor: pointer;
-
-          &:hover::after {
-            content: "";
-            position: absolute;
-            width: 125%;
-            height: 2px;
-            bottom: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #fff;
-          }
+        }
+        .active::after {
+          content: "";
+          position: absolute;
+          width: 125%;
+          height: 2px;
+          bottom: -16px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff;
         }
       }
     }

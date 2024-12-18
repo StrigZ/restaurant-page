@@ -3,7 +3,7 @@ import renderStartPage from "./renderStartPage";
 import renderIntensePlan from "./renderIntensePlan";
 import renderStore from "./renderStorePage";
 
-const nav = document.querySelector("nav");
+const nav = document.querySelector("nav > ul");
 const main = document.querySelector("main");
 
 (() => {
@@ -36,6 +36,7 @@ nav.addEventListener("click", ({ target }) => {
   if (!target.id) {
     return;
   }
-
+  [...nav.children].forEach((li) => li.children[0].classList.remove("active"));
+  target.classList.add("active");
   renderContentById(target.id);
 });
